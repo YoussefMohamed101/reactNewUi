@@ -1,0 +1,125 @@
+/* first section */
+.textSide{
+    margin-left: 130px;
+}
+.text1{
+    font-size: 2.7rem;
+    font-weight: bolder;
+}
+.text1Word{
+    color: #FF7C03;
+}
+.text2{
+    font-size: 1.5rem;
+    
+}
+.textDiv{
+    box-shadow: 5px 5px 5px 2px rgb(222, 222, 222);
+    border-radius: 20px;
+    height: 10vh;
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center;
+    width: 400px;
+}
+.textWelcome{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-right: 13px;
+   
+}
+.textbutton{
+background-color: #FF7C03;
+color: white;    
+font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 16px;
+    box-shadow: 10px 10px 10px rgb(222, 222, 222);
+    height: 7vh;
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center;
+}
+
+/* imgside */
+.imgDiv{
+  width: 20vw;
+  height: 60vh;  
+  display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center;
+}
+.imgside{
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px 3px rgb(241, 241, 241);
+}
+/* second section */
+.logo1{
+    width: 100px;
+    height: 100px;
+}
+.logo2{
+    width: 80px;
+    height: 80px;
+}
+.projectText{
+font-size: 7rem;
+font-weight: bolder;
+}
+.projectColor{
+    color: #42B6D3;
+}
+
+.imgProject{
+    margin: 10px;
+    /* width: 230px;
+    height: 200px; */
+    margin-top: 30px;
+    align-items: center;
+}
+/* third section */
+.comSection{
+    background-color: #42B6D3;
+    
+}
+.ComText{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    font-weight: bolder;
+}
+.comDiv{
+    display: flex;
+    margin-right: 10px;
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center;
+
+}
+.comImage1{
+   width: 80px;
+   height: 50px;
+   
+}
+.comImage2{
+   width: 90px;
+   height: 70px;
+  
+}
+.comImage3{
+   width: 60px;
+   height: 40px;
+   margin-right: 10px;
+   
+}
+.commText{
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center;
+    margin-top: 10px;
+}
+@media only screen and (max-width: 600px){
+    .textFirst{
+text-align: center;
+}}

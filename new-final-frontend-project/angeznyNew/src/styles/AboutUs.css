@@ -1,0 +1,64 @@
+.header{
+    font-size: 3.2rem;
+    font-weight: bolder;
+    color: rgb(41, 41, 41);
+}
+.buttonHeader{
+    background-color:#FF7C03 ;
+    border-radius: 10px;
+    color: white;
+    font-weight: bolder;
+}
+.DivCONTAINER{
+   margin-bottom: 100px;
+    height: 500px;
+    margin-top: 100px;
+}
+.Div-CONTAINER{
+   margin-bottom: 100px;
+    height: 350px;
+    margin-top: 100px;
+       
+}
+.contactDIV{
+    position: relative;
+    background-color: #FF7C03;
+    height: 330px;
+}
+.contact-DIV1{
+    position: relative;
+    background-color: #42B6D3;
+    height: 330px;
+}
+.contact-DIV2{
+    position: relative;
+    background-color: #42B6D3;
+    height: 130px;
+}
+.contactImag{
+    width:100% ;
+    position: absolute;
+    left: 15px;
+    top:15px;
+    height: 345px;
+}
+.contact-Imag1{
+    width:100% ;
+    position: absolute;
+    left: 15px;
+    top:15px;
+    height: 345px;
+}
+.contact-Imag2{
+    width:100% ;
+    position: absolute;
+    left: 15px;
+    top:15px;
+    height: 145px;
+}
+
+@media only screen and (max-width: 600px) {
+     .sliderSection{
+      display: none;
+    }
+  }

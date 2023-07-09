@@ -1,0 +1,21 @@
+.navBarContainer{
+    background: -webkit-linear-gradient(to right, #2362e9, #13619d, #369ddd, #45a0b4);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    font-size: larger;
+    font-weight: bolder;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    border-radius: 30px 0px 0px 0px;
+    padding-top: 10px;
+}
+.navBarContainer .NavItem{
+    margin-bottom: 15px;
+    margin-right: 50px;
+    
+    
+}
