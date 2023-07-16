@@ -57,7 +57,7 @@ class TaskController extends Controller
         $task = Task::create($request->all());
         // print($task->project->project_type);
         if ($task->project->project_type == "mileStone") {
-            $freelancer =  Freelancer::find($request->input('assigned_to'));
+            $freelancer =  Freelancer::where('user_id', $request->input('assigned_to'));
             if ($freelancer) {
                 $freelancer->update([
                     'Status' => 0,
@@ -67,7 +67,7 @@ class TaskController extends Controller
 
             // print(Freelancer::find($request->input('assigned_to')));
         } else {
-            $employee = Employee::find($request->input('assigned_to'));
+            $employee = Employee::where('user_id', $request->input('assigned_to'));
             if ($employee) {
                 $employee->update([
                     // 'Status' => 0,
@@ -231,4 +231,3 @@ class TaskController extends Controller
         return TaskResource::collection($results);
     }
 }
-

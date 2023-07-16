@@ -37,6 +37,16 @@ const UserProfile = () => {
   useEffect(() => {
     Aos.init();
   }, []);
+  const visaImageUrl =
+    "https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/visa.png";
+  const visaImageUrl2 =
+    "https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png";
+
+  const [activeButton, setActiveButton] = useState("online");
+
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+  };
 
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("user_id");
@@ -298,6 +308,7 @@ const UserProfile = () => {
                           <i class="fa-solid fa-pen-to-square mx-1 "></i>
                         </MDBBtn>
                       </div>
+
                       <div className="ms-3" style={{ marginTop: "100px" }}>
                         <MDBTypography tag="h5" className=" fs-1">
                           {user["name"]}
@@ -328,7 +339,34 @@ const UserProfile = () => {
                           </MDBCardText>
                         </div>
                       </div>
+                      {localStorage.getItem("user_role") == "Freelancer" ? (
+                        <div className="btn-group buttonsStatus">
+                          <button
+                            className={`btn ${
+                              activeButton === "online"
+                                ? "btn-primary active"
+                                : ""
+                            }`}
+                            onClick={() => handleButtonClick("online")}
+                          >
+                            online
+                          </button>
+                          <button
+                            className={`btn ${
+                              activeButton === "invisible"
+                                ? "btn-primary active"
+                                : ""
+                            }`}
+                            onClick={() => handleButtonClick("invisible")}
+                          >
+                            invisible
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="div-hidden"></div>
+                      )}
                     </div>
+
                     <MDBCardBody className="text-black p-4">
                       <MDBCard data-aos="zoom-in">
                         {" "}
@@ -426,6 +464,27 @@ const UserProfile = () => {
                               {!user["phone"] ? "empty field" : user["phone"]}{" "}
                             </MDBCardText>
                           </MDBCard>
+                        </div>
+                        <div className="container containercard">
+                          <div className="circles">
+                            <div className="circle circle-1"></div>
+                            <div className="circle circle-2"></div>
+                          </div>
+                          {/* <Link className="" to="/payment"> */}
+                          <div className=" cardVisa">
+                            <div className="visa_logo">
+                              <img src={visaImageUrl} alt="" />
+                            </div>
+                            <div className="visa_info">
+                              <img src={visaImageUrl2} alt="" />
+                              <p>4586 7985 9271 6388</p>
+                            </div>
+                            <div className="visa_crinfo">
+                              <p>02/12</p>
+                              <p>Angezny</p>
+                            </div>
+                          </div>
+                          {/* </Link> */}
                         </div>
                       </div>
 

@@ -6,6 +6,14 @@ const FreelancerEditForm = ({ employee, handleUpdate }) => {
   // console.log(employee);
   const [formData, setFormData] = useState(employee);
 
+  const photoData = new FormData();
+  const [photo, setPhoto] = useState(null);
+
+  const handlePhotoChange = (event) => {
+    console.log(event.target.files[0]);
+    setPhoto(event.target.files[0]);
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleSubmitAndClose = () => {
@@ -27,6 +35,8 @@ const FreelancerEditForm = ({ employee, handleUpdate }) => {
   const handleSubmit = (event) => {
     // event.preventDefault();
     // console.log(formData);
+    photoData.append("photo", photo);
+    formData.profilePic = photoData.get("photo");
     handleUpdate(formData);
     handleClose();
   };
@@ -124,8 +134,8 @@ const FreelancerEditForm = ({ employee, handleUpdate }) => {
                       type="file"
                       name="profilePic"
                       className="form-control"
-                      value={formData.user.profilePic}
-                      onChange={handleInputChange}
+                      // value={formData.user.profilePic}
+                      onChange={handlePhotoChange}
                     />
                   </div>
                   <div className="row mb-3">

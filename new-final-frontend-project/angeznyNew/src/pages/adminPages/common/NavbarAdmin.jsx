@@ -28,13 +28,19 @@ const NavbarAdmin = () => {
 
   const handleLogout = () => {
     localStorage.clear();
-    localStorage.setItem("isLogin",false);
+    localStorage.setItem("isLogin", false);
     // Perform any additional logout actions
   };
 
   return (
     <>
-      <MDBNavbar expand="lg" light bgColor="light" className="mb-1">
+      <MDBNavbar
+        expand="lg"
+        light
+        bgColor="light"
+        className="mb-1"
+        style={{ position: "fixed", zIndex: "999", width: "100%" }}
+      >
         <MDBContainer fluid>
           <Link className="nav-link  logoName mx-5  " to="/">
             <span className="firstLetter">A</span>ngezny
@@ -51,9 +57,7 @@ const NavbarAdmin = () => {
 
           <MDBCollapse navbar show={showBasic}>
             <div className=" headerMenu col-9">
-              <MDBNavbarNav className="mr-auto mb-2 mb-lg-0 linksMenu">
-           
-              </MDBNavbarNav>
+              <MDBNavbarNav className="mr-auto mb-2 mb-lg-0 linksMenu"></MDBNavbarNav>
             </div>
             {isLoggedIn && (
               <MDBDropdown className="DropLogout">
@@ -62,7 +66,6 @@ const NavbarAdmin = () => {
                   <span className="caret">{userName}</span>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                
                   <Link className="nav-link  " to="/" onClick={handleLogout}>
                     <MDBDropdownItem link>Log out</MDBDropdownItem>
                   </Link>

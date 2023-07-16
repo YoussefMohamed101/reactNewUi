@@ -136,13 +136,31 @@ export default function Developer() {
   };
 
   const handleUpdate = (updatedclient) => {
+    const data = new FormData();
+
+    data.append("profilePic", updatedclient.profilePic);
+    data.append("name", updatedclient.user.name);
+    data.append("email", updatedclient.user.email);
+    data.append("password", updatedclient.user.password);
+    data.append("phone", updatedclient.user.phone);
+    data.append("nationalID", updatedclient.user.nationalID);
+    data.append("address", updatedclient.user.address);
+    data.append("joinedDate", updatedclient.user.joinedDate);
+    data.append("endDate", updatedclient.user.endDate);
+    data.append("country", updatedclient.user.country);
+    data.append("role", updatedclient.user.role);
+    data.append("userName", updatedclient.user.userName);
+    data.append("gender", updatedclient.user.gender);
+    data.append("staff_level_id", updatedclient.user.staff);
+
     console.log(updatedclient);
     axios
-      .put(
-        `http://127.0.0.1:8000/api/user/${updatedclient.user.id}`,
-        updatedclient.user,
+      .post(
+        `http://127.0.0.1:8000/api/user/${updatedclient.user.id}?_method=PUT`,
+        data,
         {
           headers: {
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
@@ -162,7 +180,6 @@ export default function Developer() {
         setSelectedclient(null);
       })
       .catch((error) => {
-
         console.error(error);
       });
   };
@@ -250,7 +267,7 @@ export default function Developer() {
               // filter
               style={{ minWidth: "14rem" }}
             />
-               <Column
+            <Column
               field="user.profilePic"
               header="Profile Picture"
               body={(rowData) => (

@@ -15,6 +15,14 @@ const ProductOwnerEditForm = ({ employee, handleUpdate }) => {
   const [formData, setFormData] = useState(employee);
   const [staffLevels, setStaffLevels] = useState([]);
 
+  const photoData = new FormData();
+  const [photo, setPhoto] = useState(null);
+
+  const handlePhotoChange = (event) => {
+    console.log(event.target.files[0]);
+    setPhoto(event.target.files[0]);
+  };
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/staff", {
@@ -58,8 +66,9 @@ const ProductOwnerEditForm = ({ employee, handleUpdate }) => {
   };
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
-    // console.log(formData);
+    photoData.append("photo", photo);
+    formData.profilePic = photoData.get("photo");
+    // console.log(formData.profilePic);
     handleUpdate(formData);
     handleClose();
   };
@@ -97,6 +106,17 @@ const ProductOwnerEditForm = ({ employee, handleUpdate }) => {
                       name="email"
                       className="form-control disabled"
                       value={formData.user.email}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+
+                  <div className="row my-3">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      className="form-control disabled"
+                      // value={formData.user.password}
                       onChange={handleInputChange}
                     />
                   </div>
@@ -151,15 +171,15 @@ const ProductOwnerEditForm = ({ employee, handleUpdate }) => {
                       onChange={handleInputChange}
                     />
                   </div>
-                  
+
                   <div className="row mb-3">
                     <label>Profile Picture</label>
                     <input
                       type="file"
                       name="profilePic"
                       className="form-control"
-                      value={formData.user.profilePic}
-                      onChange={handleInputChange}
+                      // value={formData.user.profilePic}
+                      onChange={handlePhotoChange}
                     />
                   </div>
 

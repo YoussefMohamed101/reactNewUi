@@ -38,9 +38,9 @@
 //     productOwnerId,
 //     productManagerId
 //   ) {
-//     const appID = "240169ef153c40df";
+//     const appID = "242435259ac8a12c";
 //     const region = "US";
-//     const authKey = "581f246117c147b5f041cf28049c89388b3fc5cd";
+//     const authKey = "310e279501ee4e4f574e4d6c4093132a60a1570b";
 //     const appSetting = new CometChat.AppSettingsBuilder()
 //       .subscribePresenceForAllUsers()
 //       .setRegion(region)
@@ -538,9 +538,9 @@ const ClientProject = ({ statusProject }) => {
     productOwnerId,
     productManagerId
   ) {
-    const appID = "240169ef153c40df";
+    const appID = "242435259ac8a12c";
     const region = "US";
-    const authKey = "581f246117c147b5f041cf28049c89388b3fc5cd";
+    const authKey = "310e279501ee4e4f574e4d6c4093132a60a1570b";
     const appSetting = new CometChat.AppSettingsBuilder()
       .subscribePresenceForAllUsers()
       .setRegion(region)
@@ -684,11 +684,11 @@ const ClientProject = ({ statusProject }) => {
 
   const getClassByStatus = (statusProject) => {
     if (statusProject === "completed") {
-      return "green";
+      return "greenP";
     } else if (statusProject === "inProgress") {
-      return "yellow";
+      return "yellowP";
     } else {
-      return "red";
+      return "redP";
     }
   };
 

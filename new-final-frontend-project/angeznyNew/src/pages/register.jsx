@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 // import { Button } from "@material-ui/core";
 import { toast } from "react-toastify";
 import axios from "axios";
-import bus2 from "../assets/images/bussiness/busssm.avif";
+import bus2 from "../assets/images/bussiness/business55-removebg-preview.png";
 import SelectField from "./formitems/SelectField";
 import "./style.css";
 import { CometChat } from "@cometchat-pro/chat";
@@ -20,9 +20,9 @@ import {
 
 const handleUserChat = () => {
   console.log("asd");
-  const appID = "240169ef153c40df";
+  const appID = "242435259ac8a12c";
   const region = "US";
-  const authKey = "581f246117c147b5f041cf28049c89388b3fc5cd";
+  const authKey = "310e279501ee4e4f574e4d6c4093132a60a1570b";
   const appSetting = new CometChat.AppSettingsBuilder()
     .subscribePresenceForAllUsers()
     .setRegion(region)

@@ -115,9 +115,9 @@ export default function ProductOwner() {
   };
 
   const handleUserChat = (data) => {
-    const appID = "240169ef153c40df";
+    const appID = "242435259ac8a12c";
     const region = "US";
-    const authKey = "581f246117c147b5f041cf28049c89388b3fc5cd";
+    const authKey = "310e279501ee4e4f574e4d6c4093132a60a1570b";
     const appSetting = new CometChat.AppSettingsBuilder()
       .subscribePresenceForAllUsers()
       .setRegion(region)
@@ -257,6 +257,7 @@ export default function ProductOwner() {
     data.append("gender", formData.user.gender);
     data.append("staff_level_id", formData.user.staff);
 
+    console.log(data.get("profilePic"));
     try {
       const response = await axios.post(
         "http://127.0.0.1:8000/api/register/manager",
@@ -344,12 +345,29 @@ export default function ProductOwner() {
     // setSelectedowner(updatedowner);
     // setSelectedowner(updatedowner);
     // console.log(selectedowner);
+
+    const data = new FormData();
+    data.append("profilePic", updatedowner.profilePic);
+    data.append("name", updatedowner.user.name);
+    data.append("email", updatedowner.user.email);
+    data.append("password", updatedowner.user.password);
+    data.append("phone", updatedowner.user.phone);
+    data.append("nationalID", updatedowner.user.nationalID);
+    data.append("address", updatedowner.user.address);
+    data.append("joinedDate", updatedowner.user.joinedDate);
+    data.append("endDate", updatedowner.user.endDate);
+    data.append("country", updatedowner.user.country);
+    data.append("role", updatedowner.user.role);
+    data.append("userName", updatedowner.user.userName);
+    data.append("gender", updatedowner.user.gender);
+    data.append("staff_level_id", updatedowner.user.staff);
     axios
-      .put(
-        `http://127.0.0.1:8000/api/user/${updatedowner.user.id}`,
-        updatedowner.user,
+      .post(
+        `http://127.0.0.1:8000/api/user/${updatedowner.user.id}?_method=PUT`,
+        data,
         {
           headers: {
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }

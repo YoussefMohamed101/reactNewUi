@@ -15,6 +15,14 @@ const ProductManagerEditForm = ({ employee, handleUpdate }) => {
 
   const [staffLevels, setStaffLevels] = useState([]);
 
+  const photoData = new FormData();
+  const [photo, setPhoto] = useState(null);
+  // formData.append("photo", photo);
+
+  const handlePhotoChange = (event) => {
+    console.log(event.target.files[0]);
+    setPhoto(event.target.files[0]);
+  };
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/staff", {
@@ -60,6 +68,8 @@ const ProductManagerEditForm = ({ employee, handleUpdate }) => {
   const handleSubmit = (event) => {
     // event.preventDefault();
     // console.log(formData);
+    photoData.append("photo", photo);
+    formData.profilePic = photoData.get("photo");
     handleUpdate(formData);
     handleClose();
   };
@@ -156,8 +166,8 @@ const ProductManagerEditForm = ({ employee, handleUpdate }) => {
                       type="file"
                       name="profilePic"
                       className="form-control"
-                      value={formData.user.profilePic}
-                      onChange={handleInputChange}
+                      // value={formData.user.profilePic}
+                      onChange={handlePhotoChange}
                     />
                   </div>
                   <div className="row mb-3">

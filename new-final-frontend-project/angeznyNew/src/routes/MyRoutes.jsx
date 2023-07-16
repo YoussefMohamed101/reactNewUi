@@ -63,8 +63,8 @@ import GuardRoute from "../guard/GuardRoute";
 import Footer from "../pages/user/common/footer";
 import Header from "../pages/user/common/header";
 import NotFound from "../components/NotFound";
-import Failed from "../pages/user/clientPages/common/failed"
-import Success from "../pages/user/clientPages/common/success"
+import Failed from "../pages/user/clientPages/common/failed";
+import Success from "../pages/user/clientPages/common/success";
 
 const MyRoutes = () => {
   // const [currentForm, setCurrentForm] = useState("Login");
@@ -169,11 +169,13 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
-                <AdminSidnave className="col-2"style={{}}/>
-                <AdminDash className="col-12" />
+                <NavbarAdmin className="col-12" />
+                <AdminSidnave className="col-2" style={{}} />
+                {/* <AdminDash className="col-12" /> */}
+                <div className="col-12 ms-5 pt-5">
+                  <UserProfile></UserProfile>
+                </div>
               </div>
-              
             </Suspense>
           }
         />
@@ -188,11 +190,12 @@ const MyRoutes = () => {
                 </div>
               }
             >
-            
-                <div className="w-100 h-100">
-                <NavbarAdmin className="col-12"/>
-                <AdminSidnave className="col-2"style={{}}/>
-                <AdminOwner className="col-12" />
+              <div className="w-100 h-100">
+                <NavbarAdmin className="col-12" />
+                <AdminSidnave className="col-2" style={{}} />
+                <div className="col-12 pt-5">
+                  <AdminOwner className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -203,14 +206,16 @@ const MyRoutes = () => {
             <Suspense
               fallback={
                 <div className="grid place-items-center h-screen bg-black">
-                  <CircleSpinner size={60}/>
+                  <CircleSpinner size={60} />
                 </div>
               }
             >
               <div className="w-100 h-100">
-                <NavbarAdmin className="col-12"/>
-                <AdminSidnave className="col-2"style={{}}/>
-                <AdminManager className="col-12" />
+                <NavbarAdmin className="col-12" />
+                <AdminSidnave className="col-2" style={{}} />
+                <div className="col-12 pt-5">
+                  <AdminManager className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -226,9 +231,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
-                <AdminSidnave className="col-2"style={{}}/>
-                <AdminDeveloper className="col-12" />
+                <NavbarAdmin className="col-12" />
+                <AdminSidnave className="col-2" style={{}} />
+                <div className="col-12 pt-5">
+                  <AdminDeveloper className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -244,9 +251,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
-                <AdminSidnave className="col-2"style={{}}/>
-                <AdminFreelancer className="col-12" />
+                <NavbarAdmin className="col-12" />
+                <AdminSidnave className="col-2" style={{}} />
+                <div className="col-12 pt-5">
+                  <AdminFreelancer className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -263,9 +272,11 @@ const MyRoutes = () => {
               }
             >
               <div className="row w-100 h-100">
-                <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminPayment className="col-10" />
+                <div className="col-12 pt-5">
+                  <AdminPayment className="col-10" />
+                </div>
               </div>
             </Suspense>
           }
@@ -281,9 +292,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminClient className="col-10" />
+                <div className="col-12 pt-5">
+                  <AdminClient className="col-10" />
+                </div>
               </div>
             </Suspense>
           }
@@ -300,9 +313,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminProject className="col-12" />
+                <div className="col-12 pt-5">
+                  <AdminProject className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -319,9 +334,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminTask className="col-12" />
+                <div className="col-12 pt-5">
+                  <AdminTask className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -338,9 +355,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminSkill className="col-12" />
+                <div className="col-12 pt-5">
+                  <AdminSkill className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -357,9 +376,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminStaffLevel className="col-12" />
+                <div className="col-12 pt-5">
+                  <AdminStaffLevel className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -376,9 +397,11 @@ const MyRoutes = () => {
               }
             >
               <div className="w-100 h-100">
-              <NavbarAdmin className="col-12"/>
+                <NavbarAdmin className="col-12" />
                 <AdminSidnave className="col-2" style={{}} />
-                <AdminContactUs className="col-12" />
+                <div className="col-12 pt-5">
+                  <AdminContactUs className="col-12" />
+                </div>
               </div>
             </Suspense>
           }
@@ -464,9 +487,9 @@ const MyRoutes = () => {
                   <CircleSpinner size={60} />
                 </div>
               }
-            >   
+            >
               <Header />
-              <Success/>
+              <Success />
               <Footer />
             </Suspense>
           }
@@ -481,13 +504,12 @@ const MyRoutes = () => {
                 </div>
               }
             >
-              
               <Header />
-              <Failed/>
+              <Failed />
               <Footer />
             </Suspense>
           }
-        /> 
+        />
         <Route
           path="/client/profile"
           element={

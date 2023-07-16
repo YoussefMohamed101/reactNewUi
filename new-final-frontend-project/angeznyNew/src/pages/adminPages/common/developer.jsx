@@ -71,9 +71,9 @@ export default function Developer() {
   };
 
   const handleUserChat = (data) => {
-    const appID = "240169ef153c40df";
+    const appID = "242435259ac8a12c";
     const region = "US";
-    const authKey = "581f246117c107b5f041cf28049c89388b3fc5cd";
+    const authKey = "310e279501ee4e4f574e4d6c4093132a60a1570b";
     const appSetting = new CometChat.AppSettingsBuilder()
       .subscribePresenceForAllUsers()
       .setRegion(region)
@@ -112,33 +112,31 @@ export default function Developer() {
 
   const handleSubmit = async (event) => {
     // event.preventDefault();
-    console.log(formData);
-    await axios
-      .post(
-        "http://127.0.0.1:8000/api/register/manager",
-        {
-          name: formData.user.name,
-          email: formData.user.email,
-          password: formData.user.password,
-          phone: formData.user.phone,
-          nationalID: formData.user.nationalID,
-          address: formData.user.address,
-          joinedDate: formData.user.joinedDate,
-          endDate: formData.user.endDate,
-          country: formData.user.country,
-          role: formData.user.role,
-          userName: formData.user.userName,
-          gender: formData.user.gender,
-          staff_level_id: formData.user.staff,
+    const data = new FormData();
+    data.append("profilePic", formData.user.profilePic);
+    data.append("name", formData.user.name);
+    data.append("email", formData.user.email);
+    data.append("password", formData.user.password);
+    data.append("phone", formData.user.phone);
+    data.append("nationalID", formData.user.nationalID);
+    data.append("address", formData.user.address);
+    data.append("joinedDate", formData.user.joinedDate);
+    data.append("endDate", formData.user.endDate);
+    data.append("country", formData.user.country);
+    data.append("role", formData.user.role);
+    data.append("userName", formData.user.userName);
+    data.append("gender", formData.user.gender);
+    data.append("staff_level_id", formData.user.staff);
+
+    axios
+      .post("http://127.0.0.1:8000/api/register/manager", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      )
+      })
       .then((response) => {
-        console.log(formData);
+        console.log(response.data);
         handleUserChat(response.data.employee.user);
         axios
           .get("http://127.0.0.1:8000/api/staff", {
@@ -220,12 +218,28 @@ export default function Developer() {
 
   const handleUpdate = (updatedEmployee) => {
     console.log(updatedEmployee);
+    const data = new FormData();
+    data.append("profilePic", updatedEmployee.profilePic);
+    data.append("name", updatedEmployee.user.name);
+    data.append("email", updatedEmployee.user.email);
+    data.append("password", updatedEmployee.user.password);
+    data.append("phone", updatedEmployee.user.phone);
+    data.append("nationalID", updatedEmployee.user.nationalID);
+    data.append("address", updatedEmployee.user.address);
+    data.append("joinedDate", updatedEmployee.user.joinedDate);
+    data.append("endDate", updatedEmployee.user.endDate);
+    data.append("country", updatedEmployee.user.country);
+    data.append("role", updatedEmployee.user.role);
+    data.append("userName", updatedEmployee.user.userName);
+    data.append("gender", updatedEmployee.user.gender);
+    data.append("staff_level_id", updatedEmployee.user.staff);
     axios
-      .put(
-        `http://127.0.0.1:8000/api/user/${updatedEmployee.user.id}`,
-        updatedEmployee.user,
+      .post(
+        `http://127.0.0.1:8000/api/user/${updatedEmployee.user.id}?_method=PUT`,
+        data,
         {
           headers: {
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
@@ -444,4 +458,3 @@ export default function Developer() {
     </div>
   );
 }
-

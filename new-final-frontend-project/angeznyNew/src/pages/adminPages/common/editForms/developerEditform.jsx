@@ -15,6 +15,14 @@ const DeveloperEditForm = ({ employee, handleUpdate }) => {
 
   const [staffLevels, setStaffLevels] = useState([]);
 
+  const photoData = new FormData();
+  const [photo, setPhoto] = useState(null);
+
+  const handlePhotoChange = (event) => {
+    console.log(event.target.files[0]);
+    setPhoto(event.target.files[0]);
+  };
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/staff", {
@@ -59,6 +67,8 @@ const DeveloperEditForm = ({ employee, handleUpdate }) => {
   const handleSubmit = (event) => {
     // event.preventDefault();
     // console.log(formData);
+    photoData.append("photo", photo);
+    formData.profilePic = photoData.get("photo");
     handleUpdate(formData);
     handleClose();
   };
@@ -149,14 +159,14 @@ const DeveloperEditForm = ({ employee, handleUpdate }) => {
                       onChange={handleInputChange}
                     />
                   </div>
-                  
+
                   <div className="row mb-3">
                     <label>Profile Picture</label>
                     <input
                       type="file"
                       name="profilePic"
                       className="form-control"
-                      onChange={handleInputChange}
+                      onChange={handlePhotoChange}
                     />
                   </div>
 

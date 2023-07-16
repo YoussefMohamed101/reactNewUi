@@ -113,7 +113,6 @@ export default function Freelancer() {
       });
   };
 
-  
   const handleDelete = (ownerId) => {
     axios
       .delete(`http://127.0.0.1:8000/api/manager/${ownerId}`, {
@@ -131,7 +130,6 @@ export default function Freelancer() {
         toast.error("Failed to delete user");
       });
   };
-  
 
   const handleEdit = (freelancer) => {
     // console.log(freelancer);
@@ -141,12 +139,29 @@ export default function Freelancer() {
 
   const handleUpdate = (updatedfreelancer) => {
     console.log(updatedfreelancer);
+
+    const data = new FormData();
+    data.append("profilePic", updatedfreelancer.profilePic);
+    data.append("name", updatedfreelancer.user.name);
+    data.append("email", updatedfreelancer.user.email);
+    data.append("password", updatedfreelancer.user.password);
+    data.append("phone", updatedfreelancer.user.phone);
+    data.append("nationalID", updatedfreelancer.user.nationalID);
+    data.append("address", updatedfreelancer.user.address);
+    data.append("joinedDate", updatedfreelancer.user.joinedDate);
+    data.append("endDate", updatedfreelancer.user.endDate);
+    data.append("country", updatedfreelancer.user.country);
+    data.append("role", updatedfreelancer.user.role);
+    data.append("userName", updatedfreelancer.user.userName);
+    data.append("gender", updatedfreelancer.user.gender);
+    data.append("staff_level_id", updatedfreelancer.user.staff);
     axios
-      .put(
-        `http://127.0.0.1:8000/api/user/${updatedfreelancer.user.id}`,
-        updatedfreelancer.user,
+      .post(
+        `http://127.0.0.1:8000/api/user/${updatedfreelancer.user.id}?_method=PUT`,
+        data,
         {
           headers: {
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
         }
@@ -166,7 +181,6 @@ export default function Freelancer() {
         setSelectedfreelancer(null);
       })
       .catch((error) => {
-
         console.error(error);
       });
   };
@@ -259,7 +273,7 @@ export default function Freelancer() {
               // filter
               style={{ minWidth: "8rem" }}
             />
-              <Column
+            <Column
               field="user.profilePic"
               header="Profile Picture"
               body={(rowData) => (
